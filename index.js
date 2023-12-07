@@ -1,3 +1,4 @@
+const dotenv = require('dotenv').config();
 const { request } = require('express');
 const express = require('express');
 const categories = require('./routes/categories');
@@ -8,7 +9,8 @@ const sequelize = require('./database/database');
 const cors = require('cors')
 const Category = require('./database/models/category');
 const Product = require('./database/models/product');
-const PORT = 3333;
+const PORT = process.env.PORT || 3333;
+console.log("PORT", PORT);
 
 Category.hasMany(Product);
 
